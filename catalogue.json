@@ -1,6 +1,102 @@
 {
   "products": [
     {
+      "id": "1779177537594",
+      "name": "",
+      "ref": "",
+      "price": null,
+      "category": "enfant",
+      "subCategory": "garcon",
+      "sizes": [],
+      "description": "",
+      "stock": "disponible",
+      "images": [
+        "https://i.ibb.co/FbrjPgsc/IMG-9281.jpg",
+        "https://i.ibb.co/dw21rS6r/IMG-9282.jpg"
+      ],
+      "updatedAt": "2026-05-19T07:58:57.594Z"
+    },
+    {
+      "id": "1779177498112",
+      "name": "",
+      "ref": "",
+      "price": null,
+      "category": "enfant",
+      "subCategory": "garcon",
+      "sizes": [],
+      "description": "",
+      "stock": "disponible",
+      "images": [
+        "https://i.ibb.co/KS2Wwd6/IMG-9278.jpg",
+        "https://i.ibb.co/rRMcTvmf/IMG-9280.jpg"
+      ],
+      "updatedAt": "2026-05-19T07:58:18.112Z"
+    },
+    {
+      "id": "1779177456923",
+      "name": "",
+      "ref": "",
+      "price": null,
+      "category": "enfant",
+      "subCategory": "garcon",
+      "sizes": [],
+      "description": "",
+      "stock": "disponible",
+      "images": [
+        "https://i.ibb.co/5xJh5P1X/IMG-9273.jpg",
+        "https://i.ibb.co/PZhDSv7T/IMG-9275.jpg"
+      ],
+      "updatedAt": "2026-05-19T07:57:36.923Z"
+    },
+    {
+      "id": "1779177340508",
+      "name": "",
+      "ref": "",
+      "price": null,
+      "category": "enfant",
+      "subCategory": "fille",
+      "sizes": [],
+      "description": "",
+      "stock": "disponible",
+      "images": [
+        "https://i.ibb.co/F4x5W7fz/IMG-9271.jpg",
+        "https://i.ibb.co/DfGm1Srb/IMG-9272.jpg"
+      ],
+      "updatedAt": "2026-05-19T07:55:40.508Z"
+    },
+    {
+      "id": "1779177284653",
+      "name": "",
+      "ref": "",
+      "price": null,
+      "category": "enfant",
+      "subCategory": "fille",
+      "sizes": [],
+      "description": "",
+      "stock": "disponible",
+      "images": [
+        "https://i.ibb.co/n876YBMQ/IMG-9268.jpg",
+        "https://i.ibb.co/V0rLg4wp/IMG-9269.jpg"
+      ],
+      "updatedAt": "2026-05-19T07:54:44.653Z"
+    },
+    {
+      "id": "1779177230076",
+      "name": "",
+      "ref": "",
+      "price": null,
+      "category": "enfant",
+      "subCategory": "garcon",
+      "sizes": [],
+      "description": "",
+      "stock": "disponible",
+      "images": [
+        "https://i.ibb.co/6cXWcKj7/IMG-9264.jpg",
+        "https://i.ibb.co/mCsC6QP1/IMG-9265.jpg"
+      ],
+      "updatedAt": "2026-05-19T07:53:50.076Z"
+    },
+    {
       "id": "1779176012049",
       "name": "",
       "ref": "",
@@ -123,6 +219,6 @@
       "updatedAt": "2026-05-19T07:28:24.066Z"
     }
   ],
-  "exportedAt": "2026-05-19T07:34:59.196Z",
-  "total": 8
+  "exportedAt": "2026-05-19T07:59:30.975Z",
+  "total": 14
 }
