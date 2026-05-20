@@ -131,20 +131,25 @@ header {
 /* ── GRID ───────────────────────────────────────────── */
 .products-grid {
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-  gap:16px;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:22px;
 }
 
 .pcard {
-  background:var(--surface); border:1px solid var(--border);
-  border-radius:10px; overflow:hidden;
-  transition:border-color 0.2s, transform 0.2s;
+  background:linear-gradient(180deg, #141414 0%, #101010 100%);
+  border:1px solid #242424;
+  border-radius:14px; overflow:hidden;
+  transition:border-color 0.2s, transform 0.2s, box-shadow 0.2s;
   cursor:pointer;
 }
-.pcard:hover { border-color:#3a3a3a; transform:translateY(-3px); }
+.pcard:hover {
+  border-color:#3f3f3f;
+  transform:translateY(-4px);
+  box-shadow:0 14px 28px rgba(0,0,0,0.38);
+}
 
 .pcard-img-wrap {
-  width:100%; height:220px; background:var(--surface2);
+  width:100%; height:280px; background:var(--surface2);
   overflow:hidden; position:relative;
 }
 .pcard-img-wrap img {
@@ -160,14 +165,14 @@ header {
 .pcard-no-img span { font-size:32px; }
 
 
-.pcard-body { padding:14px; }
+.pcard-body { padding:16px 16px 14px; }
 .pcard-cat {
-  font-size:10px; font-weight:600; text-transform:uppercase;
+  font-size:11px; font-weight:600; text-transform:uppercase;
   letter-spacing:0.1em; color:var(--red); margin-bottom:6px;
 }
-.pcard-name { font-size:14px; font-weight:500; line-height:1.3; margin-bottom:4px; }
-.pcard-ref { font-size:11px; color:var(--text-dim); font-family:'DM Mono',monospace; }
-.pcard-sizes { font-size:11px; color:var(--text-dim); margin-top:5px; }
+.pcard-name { font-size:16px; font-weight:500; line-height:1.35; margin-bottom:5px; }
+.pcard-ref { font-size:12px; color:var(--text-dim); font-family:'DM Mono',monospace; }
+.pcard-sizes { font-size:12px; color:var(--text-dim); margin-top:7px; }
 
 /* ── EMPTY ───────────────────────────────────────────── */
 .empty { text-align:center; padding:80px 20px; color:var(--text-dim); }
@@ -293,7 +298,6 @@ const LABELS = {
     footer:'© 2025 Group Agora Chaussures — Tous droits réservés',
     empty:'Aucun produit trouvé.',
     catLabel:{ homme:'Homme', femme:'Femme', enfant:'Enfant' },
-    stock:{}
   },
   ar: {
     tagline:'الكتالوج الرسمي', all:'الكل', homme:'رجال', femme:'نساء', enfant:'أطفال',
@@ -302,7 +306,6 @@ const LABELS = {
     footer:'© 2025 مجموعة أغورا للأحذية — جميع الحقوق محفوظة',
     empty:'لا توجد منتجات.',
     catLabel:{ homme:'رجال', femme:'نساء', enfant:'أطفال' },
-    stock:{}
   },
   en: {
     tagline:'Official Catalogue', all:'All', homme:'Men', femme:'Women', enfant:'Children',
@@ -311,7 +314,6 @@ const LABELS = {
     footer:'© 2025 Group Agora Chaussures — All rights reserved',
     empty:'No products found.',
     catLabel:{ homme:'Men', femme:'Women', enfant:'Children' },
-    stock:{}
   }
 };
 
