@@ -159,14 +159,6 @@ header {
 }
 .pcard-no-img span { font-size:32px; }
 
-.stock-badge {
-  position:absolute; top:10px; right:10px;
-  font-size:10px; font-weight:600; padding:3px 8px; border-radius:4px;
-  text-transform:uppercase; letter-spacing:0.06em;
-}
-.stock-dispo { background:#1a3d24; color:#6effa3; }
-.stock-rupture { background:#3d1a1a; color:#ff7070; }
-.stock-commande { background:#3d3520; color:#ffd970; }
 
 .pcard-body { padding:14px; }
 .pcard-cat {
@@ -301,7 +293,7 @@ const LABELS = {
     footer:'© 2025 Group Agora Chaussures — Tous droits réservés',
     empty:'Aucun produit trouvé.',
     catLabel:{ homme:'Homme', femme:'Femme', enfant:'Enfant' },
-    stock:{ disponible:'Disponible', rupture:'Rupture', commande:'Sur commande' }
+    stock:{}
   },
   ar: {
     tagline:'الكتالوج الرسمي', all:'الكل', homme:'رجال', femme:'نساء', enfant:'أطفال',
@@ -310,7 +302,7 @@ const LABELS = {
     footer:'© 2025 مجموعة أغورا للأحذية — جميع الحقوق محفوظة',
     empty:'لا توجد منتجات.',
     catLabel:{ homme:'رجال', femme:'نساء', enfant:'أطفال' },
-    stock:{ disponible:'متوفر', rupture:'نفد المخزون', commande:'عند الطلب' }
+    stock:{}
   },
   en: {
     tagline:'Official Catalogue', all:'All', homme:'Men', femme:'Women', enfant:'Children',
@@ -319,7 +311,7 @@ const LABELS = {
     footer:'© 2025 Group Agora Chaussures — All rights reserved',
     empty:'No products found.',
     catLabel:{ homme:'Men', femme:'Women', enfant:'Children' },
-    stock:{ disponible:'Available', rupture:'Out of stock', commande:'On order' }
+    stock:{}
   }
 };
 
@@ -414,7 +406,6 @@ function productTitle(p) {
 }
 
 function cardHTML(p) {
-  const stockClass = { disponible:'stock-dispo', rupture:'stock-rupture', commande:'stock-commande' };
   const title = productTitle(p);
   const ref = (p.ref && p.ref.trim()) || '';
   const altText = title || ref || 'Produit';
@@ -428,7 +419,6 @@ function cardHTML(p) {
   <div class="pcard" onclick="openModal('${p.id}')">
     <div class="pcard-img-wrap">
       ${imgContent}
-      ${p.stock ? `<span class="stock-badge ${stockClass[p.stock]||''}">${L('stock')[p.stock]||p.stock}</span>` : ''}
     </div>
     <div class="pcard-body">
       <div class="pcard-cat">${catLabel}${subLabel}</div>
