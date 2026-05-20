@@ -13,7 +13,6 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root {
-  /* dark theme (default) */
   --bg: #0a0a0a;
   --surface: #111;
   --surface2: #181818;
@@ -23,42 +22,62 @@
   --text: #f0f0ee;
   --text-dim: #666;
   --text-mid: #999;
-  --theme-icon: '☀️';
+  --header-bg: rgba(10,10,10,0.97);
+  --hero-fade: rgba(10,10,10,0.9);
+  --card-bg: linear-gradient(180deg, #141414 0%, #101010 100%);
+  --card-border: #242424;
+  --card-hover-border: #3f3f3f;
+  --modal-bg: linear-gradient(180deg,#171717,#121212);
+  --modal-border: #383838;
+  --search-bg: rgba(24,24,24,0.78);
+  --search-border: #2a2a2a;
+  --msize-bg: rgba(255,255,255,0.02);
+  --msize-border: #3a3a3a;
+  --shadow: rgba(0,0,0,0.38);
+  --modal-shadow: rgba(0,0,0,0.48);
 }
 
 [data-theme="light"] {
   --bg: #f5f4f1;
   --surface: #ffffff;
   --surface2: #ececea;
-  --border: #ddd;
+  --border: #e0deda;
   --red: #c0231c;
   --red-soft: rgba(192,35,28,0.10);
   --text: #111110;
   --text-dim: #888;
   --text-mid: #555;
-  --theme-icon: '🌙';
+  --header-bg: rgba(245,244,241,0.97);
+  --hero-fade: rgba(245,244,241,0.9);
+  --card-bg: linear-gradient(180deg, #ffffff 0%, #f7f6f3 100%);
+  --card-border: #e4e2de;
+  --card-hover-border: #c8c4be;
+  --modal-bg: linear-gradient(180deg,#ffffff,#f7f6f3);
+  --modal-border: #ddd;
+  --search-bg: rgba(255,255,255,0.9);
+  --search-border: #d8d5d0;
+  --msize-bg: rgba(0,0,0,0.03);
+  --msize-border: #ddd;
+  --shadow: rgba(0,0,0,0.10);
+  --modal-shadow: rgba(0,0,0,0.18);
 }
 
 html { scroll-behavior: smooth; }
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family:'DM Sans',sans-serif;
   background:
     radial-gradient(850px 420px at 50% -120px, rgba(212,43,43,0.12), transparent 70%),
     var(--bg);
-  color: var(--text);
-  font-size: 14px;
-  overflow-x: hidden;
+  color:var(--text); font-size:14px; overflow-x:hidden;
   transition: background 0.3s, color 0.3s;
-}
-header, .pcard, .modal, .modal-bg, .search-bar {
-  transition: background 0.3s, border-color 0.3s, color 0.3s;
 }
 
 /* ── HEADER ────────────────────────────────────── */
 header {
   position:sticky; top:0; z-index:100;
-  background:rgba(10,10,10,0.97); backdrop-filter:blur(12px);
+  background:var(--header-bg); backdrop-filter:blur(12px);
   border-bottom:1px solid var(--border);
+  transition: background 0.3s, border-color 0.3s;
 }
 .header-top {
   display:flex; align-items:center; justify-content:space-between;
@@ -70,28 +89,24 @@ header {
   text-transform:uppercase;
 }
 .theme-btn {
-  background: transparent;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  width: 34px; height: 34px;
-  display: flex; align-items: center; justify-content: center;
-  cursor: pointer;
-  font-size: 16px;
-  transition: border-color 0.18s, background 0.18s;
-  flex-shrink: 0;
+  background:transparent;
+  border:1px solid var(--border);
+  border-radius:6px;
+  width:34px; height:34px;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; font-size:16px;
+  transition:border-color 0.18s, background 0.18s;
+  flex-shrink:0;
 }
-.theme-btn:hover {
-  border-color: #4a4a4a;
-  background: var(--surface2);
-}
+.theme-btn:hover { border-color:var(--text-mid); background:var(--surface2); }
 .lang-switcher { display:flex; gap:6px; }
 .lang-btn {
   padding:4px 10px; border-radius:4px; font-size:11px; font-weight:600;
   background:transparent; border:1px solid var(--border); color:var(--text-dim);
   cursor:pointer; transition:all 0.18s; letter-spacing:0.05em;
 }
-.lang-btn:hover { border-color:#4a4a4a; color:var(--text); }
-.lang-btn.active { border-color:var(--red); color:#ff8a8a; background:var(--red-soft); }
+.lang-btn:hover { border-color:var(--text-mid); color:var(--text); }
+.lang-btn.active { border-color:var(--red); color:var(--red); background:var(--red-soft); }
 
 /* Nav tabs */
 .header-nav {
@@ -107,7 +122,7 @@ header {
   font-family:inherit;
 }
 .nav-tab:hover { color:var(--text); }
-.nav-tab.active { color:var(--text); border-bottom-color:var(--red); text-shadow:0 0 18px rgba(212,43,43,0.45); }
+.nav-tab.active { color:var(--text); border-bottom-color:var(--red); text-shadow:0 0 18px rgba(212,43,43,0.35); }
 
 /* ── HERO ────────────────────────────────────────────── */
 .hero {
@@ -123,7 +138,7 @@ header {
 }
 .hero::after{
   content:''; position:absolute; inset:0;
-  background:linear-gradient(180deg, transparent 40%, rgba(10,10,10,0.9) 100%);
+  background:linear-gradient(180deg, transparent 40%, var(--hero-fade) 100%);
   pointer-events:none;
 }
 .hero-eyebrow {
@@ -147,9 +162,9 @@ header {
 .search-bar-wrap { padding:0 32px 32px; max-width:600px; margin:0 auto; }
 .search-bar {
   width:100%; padding:13px 18px;
-  background:rgba(24,24,24,0.78); border:1px solid #2a2a2a;
+  background:var(--search-bg); border:1px solid var(--search-border);
   border-radius:12px; color:var(--text); font-family:inherit; font-size:14px;
-  transition:border-color 0.18s, box-shadow 0.18s;
+  transition:border-color 0.18s, box-shadow 0.18s, background 0.3s;
   backdrop-filter:blur(8px);
 }
 .search-bar:focus {
@@ -172,7 +187,7 @@ header {
 .section-title .dot { color:var(--red); }
 .section-count { font-size:12px; color:var(--text-dim); }
 
-/* sub-section (garçon / fille) */
+/* sub-section */
 .sub-section { margin-bottom:36px; }
 .sub-label {
   font-size:11px; font-weight:600; text-transform:uppercase;
@@ -189,10 +204,10 @@ header {
 }
 
 .pcard {
-  background:linear-gradient(180deg, #141414 0%, #101010 100%);
-  border:1px solid #242424;
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
   border-radius:14px; overflow:hidden;
-  transition:border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  transition:border-color 0.2s, transform 0.2s, box-shadow 0.2s, background 0.3s;
   cursor:pointer;
   position:relative;
 }
@@ -204,15 +219,16 @@ header {
   transition:opacity 0.2s;
 }
 .pcard:hover {
-  border-color:#3f3f3f;
+  border-color:var(--card-hover-border);
   transform:translateY(-4px);
-  box-shadow:0 14px 28px rgba(0,0,0,0.38);
+  box-shadow:0 14px 28px var(--shadow);
 }
 .pcard:hover::before{ opacity:1; }
 
 .pcard-img-wrap {
   width:100%; height:280px; background:var(--surface2);
   overflow:hidden; position:relative;
+  transition: background 0.3s;
 }
 .pcard-img-wrap img {
   width:100%; height:100%; object-fit:cover; display:block;
@@ -226,13 +242,12 @@ header {
 }
 .pcard-no-img span { font-size:32px; }
 
-
 .pcard-body { padding:16px 16px 14px; }
 .pcard-cat {
   font-size:11px; font-weight:600; text-transform:uppercase;
   letter-spacing:0.1em; color:var(--red); margin-bottom:6px;
 }
-.pcard-name { font-size:16px; font-weight:500; line-height:1.35; margin-bottom:5px; }
+.pcard-name { font-size:16px; font-weight:500; line-height:1.35; margin-bottom:5px; color:var(--text); }
 .pcard-ref { font-size:12px; color:var(--text-dim); font-family:'DM Mono',monospace; }
 .pcard-sizes { font-size:12px; color:var(--text-dim); margin-top:7px; }
 
@@ -244,6 +259,7 @@ header {
 footer {
   border-top:1px solid var(--border); padding:32px;
   text-align:center; color:var(--text-dim); font-size:12px;
+  transition: border-color 0.3s;
 }
 .footer-logo { font-family:'Bebas Neue',cursive; font-size:24px; color:var(--text); margin-bottom:6px; }
 .footer-logo span { color:var(--red); }
@@ -251,7 +267,7 @@ footer {
 /* ── MODAL ───────────────────────────────────────────── */
 .modal-bg {
   display:none; position:fixed; inset:0; z-index:500;
-  background:rgba(0,0,0,0.85); backdrop-filter:blur(6px);
+  background:rgba(0,0,0,0.72); backdrop-filter:blur(6px);
   align-items:center; justify-content:center; padding:20px;
 }
 .modal-bg.open { display:flex; }
@@ -261,10 +277,11 @@ footer {
 }
 .modal-bg.open .modal { animation: modalIn 0.22s ease; }
 .modal {
-  background:linear-gradient(180deg,#171717,#121212); border:1px solid #383838;
+  background:var(--modal-bg); border:1px solid var(--modal-border);
   border-radius:16px; width:100%; max-width:600px;
   max-height:90vh; overflow-y:auto; position:relative;
-  box-shadow:0 28px 56px rgba(0,0,0,0.48);
+  box-shadow:0 28px 56px var(--modal-shadow);
+  transition: background 0.3s, border-color 0.3s;
 }
 .modal-close {
   position:absolute; top:14px; right:14px;
@@ -272,23 +289,22 @@ footer {
   border-radius:6px; color:var(--text-mid); font-size:16px;
   width:32px; height:32px; cursor:pointer;
   display:flex; align-items:center; justify-content:center;
+  transition: background 0.3s, border-color 0.3s;
 }
-.modal-close:hover { color:var(--text); }
-.modal-imgs { display:flex; overflow-x:auto; gap:0; }
-.modal-imgs img {
-  width:100%; min-width:100%; height:300px; object-fit:cover; flex-shrink:0;
-}
+.modal-close:hover { color:var(--text); background:var(--surface); }
 .modal-info { padding:24px; }
 .modal-cat { font-size:11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--red); margin-bottom:6px; }
-.modal-name { font-size:22px; font-weight:500; margin-bottom:4px; }
+.modal-name { font-size:22px; font-weight:500; margin-bottom:4px; color:var(--text); }
 .modal-ref { font-size:12px; color:var(--text-dim); font-family:'DM Mono',monospace; margin-bottom:14px; }
 .modal-desc { font-size:13px; color:var(--text-mid); line-height:1.7; margin-bottom:14px; }
 .modal-sizes-wrap { margin-bottom:10px; }
 .modal-sizes-label { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-dim); margin-bottom:8px; }
 .modal-sizes { display:flex; flex-wrap:wrap; gap:6px; }
 .msize {
-  padding:6px 12px; border:1px solid #3a3a3a; border-radius:999px; font-size:12px; font-weight:500;
-  background:rgba(255,255,255,0.02);
+  padding:6px 12px; border:1px solid var(--msize-border); border-radius:999px;
+  font-size:12px; font-weight:500; color:var(--text);
+  background:var(--msize-bg);
+  transition: background 0.3s, border-color 0.3s;
 }
 
 /* Responsive */
@@ -396,62 +412,43 @@ const LABELS = {
 
 function L(key) { return LABELS[currentLang][key] || key; }
 
-// ── Load products ──────────────────────────────────────
 async function loadProducts() {
   try {
     const res = await fetch('catalogue.json?v=' + Date.now());
     if(!res.ok) throw new Error();
     const data = await res.json();
     products = data.products || [];
-  } catch(e) {
-    products = [];
-  }
+  } catch(e) { products = []; }
   renderAll();
 }
 
-// ── Render ──────────────────────────────────────────────
 function renderAll() {
   const query = (document.getElementById('searchBar').value || '').toLowerCase().trim();
   let list = [...products];
   if(currentTab !== 'all') list = list.filter(p=>p.category===currentTab);
   if(query) list = list.filter(p=>(p.name||'').toLowerCase().includes(query)||(p.ref||'').toLowerCase().includes(query));
-
   const content = document.getElementById('mainContent');
-
   if(!list.length) {
     content.innerHTML = `<div class="empty"><div class="big">👟</div><p>${L('empty')}</p></div>`;
     return;
   }
-
   if(currentTab === 'all') {
-    // Render each category as a section
     const cats = ['homme','femme','enfant'];
     let html = '';
     cats.forEach(cat => {
       const catList = list.filter(p=>p.category===cat);
       if(!catList.length) return;
-
       if(cat === 'enfant') {
         const garcons = catList.filter(p=>p.subCategory==='garcon');
         const filles  = catList.filter(p=>p.subCategory==='fille');
         const autres  = catList.filter(p=>!p.subCategory);
-        html += `<section class="section">
-          <div class="section-header">
-            <span class="section-title">${L('enfant')}<span class="dot">.</span></span>
-            <span class="section-count">${LABELS[currentLang].articles(catList.length)}</span>
-          </div>`;
+        html += `<section class="section"><div class="section-header"><span class="section-title">${L('enfant')}<span class="dot">.</span></span><span class="section-count">${LABELS[currentLang].articles(catList.length)}</span></div>`;
         if(garcons.length) html += `<div class="sub-section"><div class="sub-label">${L('garcon')}</div><div class="products-grid">${garcons.map(cardHTML).join('')}</div></div>`;
         if(filles.length)  html += `<div class="sub-section"><div class="sub-label">${L('fille')}</div><div class="products-grid">${filles.map(cardHTML).join('')}</div></div>`;
         if(autres.length)  html += `<div class="products-grid">${autres.map(cardHTML).join('')}</div>`;
         html += `</section>`;
       } else {
-        html += `<section class="section">
-          <div class="section-header">
-            <span class="section-title">${L(cat)}<span class="dot">.</span></span>
-            <span class="section-count">${LABELS[currentLang].articles(catList.length)}</span>
-          </div>
-          <div class="products-grid">${catList.map(cardHTML).join('')}</div>
-        </section>`;
+        html += `<section class="section"><div class="section-header"><span class="section-title">${L(cat)}<span class="dot">.</span></span><span class="section-count">${LABELS[currentLang].articles(catList.length)}</span></div><div class="products-grid">${catList.map(cardHTML).join('')}</div></section>`;
       }
     });
     content.innerHTML = html;
@@ -459,30 +456,18 @@ function renderAll() {
     const garcons = list.filter(p=>p.subCategory==='garcon');
     const filles  = list.filter(p=>p.subCategory==='fille');
     const autres  = list.filter(p=>!p.subCategory);
-    let html = `<section class="section">
-      <div class="section-header">
-        <span class="section-title">${L('enfant')}<span class="dot">.</span></span>
-        <span class="section-count">${LABELS[currentLang].articles(list.length)}</span>
-      </div>`;
+    let html = `<section class="section"><div class="section-header"><span class="section-title">${L('enfant')}<span class="dot">.</span></span><span class="section-count">${LABELS[currentLang].articles(list.length)}</span></div>`;
     if(garcons.length) html += `<div class="sub-section"><div class="sub-label">${L('garcon')}</div><div class="products-grid">${garcons.map(cardHTML).join('')}</div></div>`;
     if(filles.length)  html += `<div class="sub-section"><div class="sub-label">${L('fille')}</div><div class="products-grid">${filles.map(cardHTML).join('')}</div></div>`;
     if(autres.length)  html += `<div class="products-grid">${autres.map(cardHTML).join('')}</div>`;
     html += `</section>`;
     content.innerHTML = html;
   } else {
-    content.innerHTML = `<section class="section">
-      <div class="section-header">
-        <span class="section-title">${L(currentTab)}<span class="dot">.</span></span>
-        <span class="section-count">${LABELS[currentLang].articles(list.length)}</span>
-      </div>
-      <div class="products-grid">${list.map(cardHTML).join('')}</div>
-    </section>`;
+    content.innerHTML = `<section class="section"><div class="section-header"><span class="section-title">${L(currentTab)}<span class="dot">.</span></span><span class="section-count">${LABELS[currentLang].articles(list.length)}</span></div><div class="products-grid">${list.map(cardHTML).join('')}</div></section>`;
   }
 }
 
-function productTitle(p) {
-  return (p.name && p.name.trim()) || '';
-}
+function productTitle(p) { return (p.name && p.name.trim()) || ''; }
 
 function cardHTML(p) {
   const title = productTitle(p);
@@ -494,71 +479,45 @@ function cardHTML(p) {
   const catLabel = L('catLabel')[p.category] || p.category;
   const subLabel = p.subCategory ? ` · ${L(p.subCategory)}` : '';
   const refLine = ref ? `<div class="pcard-ref">REF: ${ref}</div>` : '';
-  return `
-  <div class="pcard" onclick="openModal('${p.id}')">
-    <div class="pcard-img-wrap">
-      ${imgContent}
-    </div>
-    <div class="pcard-body">
-      <div class="pcard-cat">${catLabel}${subLabel}</div>
-      ${title ? `<div class="pcard-name">${title}</div>` : ''}
-      ${refLine}
-      ${p.sizes && p.sizes.length ? `<div class="pcard-sizes">📏 ${p.sizes.join(' · ')}</div>` : ''}
-    </div>
-  </div>`;
+  return `<div class="pcard" onclick="openModal('${p.id}')"><div class="pcard-img-wrap">${imgContent}</div><div class="pcard-body"><div class="pcard-cat">${catLabel}${subLabel}</div>${title ? `<div class="pcard-name">${title}</div>` : ''}${refLine}${p.sizes && p.sizes.length ? `<div class="pcard-sizes">📏 ${p.sizes.join(' · ')}</div>` : ''}</div></div>`;
 }
 
-// ── Modal ────────────────────────────────────────────────
 function openModal(id) {
   const p = products.find(x=>x.id===id);
   if(!p) return;
   const catLabel = L('catLabel')[p.category] || p.category;
   const subLabel = p.subCategory ? ` · ${L(p.subCategory)}` : '';
-  document.getElementById('mCat').textContent   = catLabel + subLabel;
+  document.getElementById('mCat').textContent = catLabel + subLabel;
   const title = productTitle(p);
   const mName = document.getElementById('mName');
   mName.textContent = title;
   mName.style.display = title ? '' : 'none';
-  document.getElementById('mRef').textContent   = p.ref ? 'REF: ' + p.ref : '';
+  document.getElementById('mRef').textContent = p.ref ? 'REF: ' + p.ref : '';
   const mDesc = document.getElementById('mDesc');
-  mDesc.textContent  = p.description || '';
+  mDesc.textContent = p.description || '';
   mDesc.style.display = p.description ? '' : 'none';
   document.getElementById('mSizesLabel').textContent = L('sizes');
-  document.getElementById('mSizes').innerHTML   = (p.sizes||[]).map(s=>`<span class="msize">${s}</span>`).join('');
+  document.getElementById('mSizes').innerHTML = (p.sizes||[]).map(s=>`<span class="msize">${s}</span>`).join('');
   document.getElementById('mSizesWrap').style.display = p.sizes&&p.sizes.length ? '' : 'none';
 
   let modalImgIdx = 0;
-
   function showModalImg(i) {
     modalImgIdx = i;
     const el = document.getElementById('mMainImg');
-    if (el) el.src = p.images[i];
-    document.querySelectorAll('.img-dot').forEach((d, j) => {
-      d.style.opacity = j === i ? '1' : '0.3';
-    });
+    if(el) el.src = p.images[i];
+    document.querySelectorAll('.img-dot').forEach((d,j) => { d.style.opacity = j===i ? '1' : '0.3'; });
   }
-
   window.showModalImg = showModalImg;
 
+  const dotColor = document.documentElement.getAttribute('data-theme') === 'light' ? '#111' : '#fff';
   const dots = p.images && p.images.length > 1
     ? `<div style="display:flex;gap:6px;justify-content:center;padding:8px 0 4px">` +
-      p.images.map((_, i) =>
-        `<span class="img-dot" onclick="showModalImg(${i})"
-          style="width:7px;height:7px;border-radius:50%;background:#fff;
-          opacity:${i === 0 ? 1 : 0.3};cursor:pointer;transition:opacity 0.2s"></span>`
-      ).join('') + `</div>`
-    : '';
+      p.images.map((_,i) => `<span class="img-dot" onclick="showModalImg(${i})" style="width:7px;height:7px;border-radius:50%;background:${dotColor};opacity:${i===0?1:0.3};cursor:pointer;transition:opacity 0.2s"></span>`).join('') +
+      `</div>` : '';
 
-  const imgsSrc = p.images && p.images.length
-    ? `<div style="position:relative">
-         <img id="mMainImg" src="${p.images[0]}"
-           alt="${productTitle(p) || p.ref || 'Produit'}"
-           style="width:100%;height:300px;object-fit:cover;display:block">
-         ${dots}
-       </div>`
+  document.getElementById('modalImgs').innerHTML = p.images && p.images.length
+    ? `<div style="position:relative"><img id="mMainImg" src="${p.images[0]}" alt="${title||p.ref||'Produit'}" style="width:100%;height:300px;object-fit:cover;display:block">${dots}</div>`
     : '';
-
-  document.getElementById('modalImgs').innerHTML = imgsSrc;
 
   document.getElementById('modalBg').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -570,16 +529,11 @@ function closeModalBtn() {
 }
 document.addEventListener('keydown', e => { if(e.key==='Escape') closeModalBtn(); });
 
-// ── Language ─────────────────────────────────────────────
 function setLang(lang) {
   document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
   document.documentElement.lang = lang;
   currentLang = lang;
-  const pageTitles = {
-    fr: 'AGORA Chaussures — Catalogue',
-    ar: 'أغورا — الكتالوج',
-    en: 'AGORA Shoes — Catalogue'
-  };
+  const pageTitles = { fr:'AGORA Chaussures — Catalogue', ar:'أغورا — الكتالوج', en:'AGORA Shoes — Catalogue' };
   document.title = pageTitles[lang];
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
   document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
@@ -593,7 +547,6 @@ function setLang(lang) {
   renderAll();
 }
 
-// ── Tab ──────────────────────────────────────────────────
 function setTab(tab) {
   currentTab = tab;
   document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
@@ -602,8 +555,8 @@ function setTab(tab) {
 }
 
 function toggleTheme() {
-  const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
-  const next = isDark ? 'light' : 'dark';
+  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  const next = isLight ? 'dark' : 'light';
   document.documentElement.setAttribute('data-theme', next);
   document.getElementById('themeIcon').textContent = next === 'light' ? '🌙' : '☀️';
   localStorage.setItem('agora-theme', next);
@@ -613,7 +566,7 @@ function initTheme() {
   const saved = localStorage.getItem('agora-theme');
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const theme = saved || (prefersDark ? 'dark' : 'light');
-  if (theme === 'light') {
+  if(theme === 'light') {
     document.documentElement.setAttribute('data-theme', 'light');
     document.getElementById('themeIcon').textContent = '🌙';
   }
