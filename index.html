@@ -13,6 +13,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root {
+  /* dark theme (default) */
   --bg: #0a0a0a;
   --surface: #111;
   --surface2: #181818;
@@ -22,15 +23,35 @@
   --text: #f0f0ee;
   --text-dim: #666;
   --text-mid: #999;
+  --theme-icon: '☀️';
+}
+
+[data-theme="light"] {
+  --bg: #f5f4f1;
+  --surface: #ffffff;
+  --surface2: #ececea;
+  --border: #ddd;
+  --red: #c0231c;
+  --red-soft: rgba(192,35,28,0.10);
+  --text: #111110;
+  --text-dim: #888;
+  --text-mid: #555;
+  --theme-icon: '🌙';
 }
 
 html { scroll-behavior: smooth; }
 body {
-  font-family:'DM Sans',sans-serif;
+  font-family: 'DM Sans', sans-serif;
   background:
-    radial-gradient(850px 420px at 50% -120px, rgba(212,43,43,0.2), transparent 70%),
+    radial-gradient(850px 420px at 50% -120px, rgba(212,43,43,0.12), transparent 70%),
     var(--bg);
-  color:var(--text); font-size:14px; overflow-x:hidden;
+  color: var(--text);
+  font-size: 14px;
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
+}
+header, .pcard, .modal, .modal-bg, .search-bar {
+  transition: background 0.3s, border-color 0.3s, color 0.3s;
 }
 
 /* ── HEADER ────────────────────────────────────── */
@@ -47,6 +68,21 @@ header {
 .header-tagline {
   font-size:11px; color:var(--text-dim); letter-spacing:0.12em;
   text-transform:uppercase;
+}
+.theme-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 34px; height: 34px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: border-color 0.18s, background 0.18s;
+  flex-shrink: 0;
+}
+.theme-btn:hover {
+  border-color: #4a4a4a;
+  background: var(--surface2);
 }
 .lang-switcher { display:flex; gap:6px; }
 .lang-btn {
@@ -219,6 +255,11 @@ footer {
   align-items:center; justify-content:center; padding:20px;
 }
 .modal-bg.open { display:flex; }
+@keyframes modalIn {
+  from { opacity:0; transform:scale(0.96) translateY(8px); }
+  to   { opacity:1; transform:scale(1)    translateY(0);   }
+}
+.modal-bg.open .modal { animation: modalIn 0.22s ease; }
 .modal {
   background:linear-gradient(180deg,#171717,#121212); border:1px solid #383838;
   border-radius:16px; width:100%; max-width:600px;
@@ -266,6 +307,9 @@ footer {
   <div class="header-top">
     <div class="logo"><img src="logo-agora.jpg" alt="AGORA Chaussures"></div>
     <div class="header-tagline" id="tagline">Catalogue Officiel</div>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" aria-label="Toggle theme">
+      <span id="themeIcon">☀️</span>
+    </button>
     <div class="lang-switcher">
       <button class="lang-btn active" onclick="setLang('fr')">FR</button>
       <button class="lang-btn" onclick="setLang('ar')">AR</button>
@@ -287,7 +331,7 @@ footer {
 </section>
 
 <div class="search-bar-wrap">
-  <input type="text" class="search-bar" id="searchBar" placeholder="🔍 Rechercher un modèle..." oninput="renderAll()">
+  <input type="text" class="search-bar" id="searchBar" placeholder="Rechercher un modèle..." oninput="renderAll()">
 </div>
 
 <div id="mainContent"></div>
@@ -324,25 +368,28 @@ const LABELS = {
   fr: {
     tagline:'Catalogue Officiel', all:'Tous', homme:'Homme', femme:'Femme', enfant:'Enfant',
     garcon:'Garçon', fille:'Fille', sizes:'Pointures disponibles',
-    noImg:'Aucune image', search:'🔍 Rechercher un modèle...',
+    noImg:'Aucune image', search:'Rechercher un modèle...',
     footer:'© 2025 Group Agora Chaussures — Tous droits réservés',
     empty:'Aucun produit trouvé.',
+    articles: n => `${n} article${n > 1 ? 's' : ''}`,
     catLabel:{ homme:'Homme', femme:'Femme', enfant:'Enfant' },
   },
   ar: {
     tagline:'الكتالوج الرسمي', all:'الكل', homme:'رجال', femme:'نساء', enfant:'أطفال',
     garcon:'أولاد', fille:'بنات', sizes:'المقاسات المتاحة',
-    noImg:'لا توجد صورة', search:'🔍 ابحث عن منتج...',
+    noImg:'لا توجد صورة', search:'ابحث عن منتج...',
     footer:'© 2025 مجموعة أغورا للأحذية — جميع الحقوق محفوظة',
     empty:'لا توجد منتجات.',
+    articles: n => `${n} منتج`,
     catLabel:{ homme:'رجال', femme:'نساء', enfant:'أطفال' },
   },
   en: {
     tagline:'Official Catalogue', all:'All', homme:'Men', femme:'Women', enfant:'Children',
     garcon:'Boy', fille:'Girl', sizes:'Available sizes',
-    noImg:'No image', search:'🔍 Search for a model...',
+    noImg:'No image', search:'Search for a model...',
     footer:'© 2025 Group Agora Chaussures — All rights reserved',
     empty:'No products found.',
+    articles: n => `${n} item${n > 1 ? 's' : ''}`,
     catLabel:{ homme:'Men', femme:'Women', enfant:'Children' },
   }
 };
@@ -391,17 +438,17 @@ function renderAll() {
         html += `<section class="section">
           <div class="section-header">
             <span class="section-title">${L('enfant')}<span class="dot">.</span></span>
-            <span class="section-count">${catList.length} article(s)</span>
+            <span class="section-count">${LABELS[currentLang].articles(catList.length)}</span>
           </div>`;
-        if(garcons.length) html += `<div class="sub-section"><div class="sub-label">👦 ${L('garcon')}</div><div class="products-grid">${garcons.map(cardHTML).join('')}</div></div>`;
-        if(filles.length)  html += `<div class="sub-section"><div class="sub-label">👧 ${L('fille')}</div><div class="products-grid">${filles.map(cardHTML).join('')}</div></div>`;
+        if(garcons.length) html += `<div class="sub-section"><div class="sub-label">${L('garcon')}</div><div class="products-grid">${garcons.map(cardHTML).join('')}</div></div>`;
+        if(filles.length)  html += `<div class="sub-section"><div class="sub-label">${L('fille')}</div><div class="products-grid">${filles.map(cardHTML).join('')}</div></div>`;
         if(autres.length)  html += `<div class="products-grid">${autres.map(cardHTML).join('')}</div>`;
         html += `</section>`;
       } else {
         html += `<section class="section">
           <div class="section-header">
             <span class="section-title">${L(cat)}<span class="dot">.</span></span>
-            <span class="section-count">${catList.length} article(s)</span>
+            <span class="section-count">${LABELS[currentLang].articles(catList.length)}</span>
           </div>
           <div class="products-grid">${catList.map(cardHTML).join('')}</div>
         </section>`;
@@ -415,10 +462,10 @@ function renderAll() {
     let html = `<section class="section">
       <div class="section-header">
         <span class="section-title">${L('enfant')}<span class="dot">.</span></span>
-        <span class="section-count">${list.length} article(s)</span>
+        <span class="section-count">${LABELS[currentLang].articles(list.length)}</span>
       </div>`;
-    if(garcons.length) html += `<div class="sub-section"><div class="sub-label">👦 ${L('garcon')}</div><div class="products-grid">${garcons.map(cardHTML).join('')}</div></div>`;
-    if(filles.length)  html += `<div class="sub-section"><div class="sub-label">👧 ${L('fille')}</div><div class="products-grid">${filles.map(cardHTML).join('')}</div></div>`;
+    if(garcons.length) html += `<div class="sub-section"><div class="sub-label">${L('garcon')}</div><div class="products-grid">${garcons.map(cardHTML).join('')}</div></div>`;
+    if(filles.length)  html += `<div class="sub-section"><div class="sub-label">${L('fille')}</div><div class="products-grid">${filles.map(cardHTML).join('')}</div></div>`;
     if(autres.length)  html += `<div class="products-grid">${autres.map(cardHTML).join('')}</div>`;
     html += `</section>`;
     content.innerHTML = html;
@@ -426,7 +473,7 @@ function renderAll() {
     content.innerHTML = `<section class="section">
       <div class="section-header">
         <span class="section-title">${L(currentTab)}<span class="dot">.</span></span>
-        <span class="section-count">${list.length} article(s)</span>
+        <span class="section-count">${LABELS[currentLang].articles(list.length)}</span>
       </div>
       <div class="products-grid">${list.map(cardHTML).join('')}</div>
     </section>`;
@@ -480,10 +527,38 @@ function openModal(id) {
   document.getElementById('mSizes').innerHTML   = (p.sizes||[]).map(s=>`<span class="msize">${s}</span>`).join('');
   document.getElementById('mSizesWrap').style.display = p.sizes&&p.sizes.length ? '' : 'none';
 
-  const imgs = document.getElementById('modalImgs');
-  imgs.innerHTML = (p.images && p.images.length)
-    ? p.images.map(u=>`<img src="${u}" alt="${title || p.ref || 'Produit'}">`).join('')
+  let modalImgIdx = 0;
+
+  function showModalImg(i) {
+    modalImgIdx = i;
+    const el = document.getElementById('mMainImg');
+    if (el) el.src = p.images[i];
+    document.querySelectorAll('.img-dot').forEach((d, j) => {
+      d.style.opacity = j === i ? '1' : '0.3';
+    });
+  }
+
+  window.showModalImg = showModalImg;
+
+  const dots = p.images && p.images.length > 1
+    ? `<div style="display:flex;gap:6px;justify-content:center;padding:8px 0 4px">` +
+      p.images.map((_, i) =>
+        `<span class="img-dot" onclick="showModalImg(${i})"
+          style="width:7px;height:7px;border-radius:50%;background:#fff;
+          opacity:${i === 0 ? 1 : 0.3};cursor:pointer;transition:opacity 0.2s"></span>`
+      ).join('') + `</div>`
     : '';
+
+  const imgsSrc = p.images && p.images.length
+    ? `<div style="position:relative">
+         <img id="mMainImg" src="${p.images[0]}"
+           alt="${productTitle(p) || p.ref || 'Produit'}"
+           style="width:100%;height:300px;object-fit:cover;display:block">
+         ${dots}
+       </div>`
+    : '';
+
+  document.getElementById('modalImgs').innerHTML = imgsSrc;
 
   document.getElementById('modalBg').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -497,7 +572,15 @@ document.addEventListener('keydown', e => { if(e.key==='Escape') closeModalBtn()
 
 // ── Language ─────────────────────────────────────────────
 function setLang(lang) {
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.documentElement.lang = lang;
   currentLang = lang;
+  const pageTitles = {
+    fr: 'AGORA Chaussures — Catalogue',
+    ar: 'أغورا — الكتالوج',
+    en: 'AGORA Shoes — Catalogue'
+  };
+  document.title = pageTitles[lang];
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
   document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
   document.getElementById('tagline').textContent = L('tagline');
@@ -518,6 +601,25 @@ function setTab(tab) {
   renderAll();
 }
 
+function toggleTheme() {
+  const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+  const next = isDark ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  document.getElementById('themeIcon').textContent = next === 'light' ? '🌙' : '☀️';
+  localStorage.setItem('agora-theme', next);
+}
+
+function initTheme() {
+  const saved = localStorage.getItem('agora-theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const theme = saved || (prefersDark ? 'dark' : 'light');
+  if (theme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.getElementById('themeIcon').textContent = '🌙';
+  }
+}
+
+initTheme();
 loadProducts();
 </script>
 </body>
