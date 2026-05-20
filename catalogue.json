@@ -1,0 +1,444 @@
+{
+  "products": [
+    {
+      "id": "1779275190451",
+      "name": "",
+      "ref": "",
+      "category": "femme",
+      "subCategory": null,
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/7tZc8RrH/Shoe-Product-Shot-Mirrored-Pair.png"
+      ],
+      "updatedAt": "2026-05-20T11:06:30.451Z"
+    },
+    {
+      "id": "1779275176742",
+      "name": "",
+      "ref": "",
+      "category": "femme",
+      "subCategory": null,
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/Mymhqnct/Shoe-Product-Shot-2.png"
+      ],
+      "updatedAt": "2026-05-20T11:06:16.742Z"
+    },
+    {
+      "id": "1779275163528",
+      "name": "",
+      "ref": "",
+      "category": "femme",
+      "subCategory": null,
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/G4qv4SNf/Shoe-Product-Shot-3.png"
+      ],
+      "updatedAt": "2026-05-20T11:06:03.528Z"
+    },
+    {
+      "id": "1779275153310",
+      "name": "",
+      "ref": "",
+      "category": "femme",
+      "subCategory": null,
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/Rkv5dvXP/Shoe-Product-Shot-5.png"
+      ],
+      "updatedAt": "2026-05-20T11:05:53.310Z"
+    },
+    {
+      "id": "1779275130400",
+      "name": "",
+      "ref": "",
+      "category": "femme",
+      "subCategory": null,
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/KjTR4Kxk/Shoe-Product-Shot-6.png"
+      ],
+      "updatedAt": "2026-05-20T11:05:30.400Z"
+    },
+    {
+      "id": "1779275115143",
+      "name": "",
+      "ref": "",
+      "category": "femme",
+      "subCategory": null,
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/ZRBRQ4sh/Shoe-Product-Shot-7.png"
+      ],
+      "updatedAt": "2026-05-20T11:05:15.143Z"
+    },
+    {
+      "id": "1779275087572",
+      "name": "",
+      "ref": "",
+      "category": "homme",
+      "subCategory": null,
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/yFyjTCHd/Shoe-Product-Shot-8.png"
+      ],
+      "updatedAt": "2026-05-20T11:04:47.572Z"
+    },
+    {
+      "id": "1779274299719",
+      "name": "",
+      "ref": "",
+      "category": "femme",
+      "subCategory": null,
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/4wbRr1VL/Shoe-Product-Shot-9.png"
+      ],
+      "updatedAt": "2026-05-20T10:51:39.719Z"
+    },
+    {
+      "id": "1779274244580",
+      "name": "",
+      "ref": "",
+      "category": "femme",
+      "subCategory": null,
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/hJ9zqYtd/Shoe-Product-Shot-10.png"
+      ],
+      "updatedAt": "2026-05-20T10:50:44.580Z"
+    },
+    {
+      "id": "1779274229427",
+      "name": "",
+      "ref": "",
+      "category": "femme",
+      "subCategory": null,
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/GQcC1dxk/Shoe-Product-Shot-11.png"
+      ],
+      "updatedAt": "2026-05-20T10:50:29.427Z"
+    },
+    {
+      "id": "1779274212243",
+      "name": "",
+      "ref": "",
+      "category": "homme",
+      "subCategory": null,
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/sdCmM2D5/Shoe-Product-Shot-14.png"
+      ],
+      "updatedAt": "2026-05-20T10:50:12.243Z"
+    },
+    {
+      "id": "1779274113604",
+      "name": "",
+      "ref": "",
+      "category": "femme",
+      "subCategory": null,
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/q32L8fzk/Shoe-Product-Shot-15.png"
+      ],
+      "updatedAt": "2026-05-20T10:48:33.605Z"
+    },
+    {
+      "id": "1779274092418",
+      "name": "",
+      "ref": "",
+      "category": "femme",
+      "subCategory": null,
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/9kyMvVXp/Shoe-Product-Shot-16.png"
+      ],
+      "updatedAt": "2026-05-20T10:48:12.418Z"
+    },
+    {
+      "id": "1779274076152",
+      "name": "",
+      "ref": "",
+      "category": "femme",
+      "subCategory": null,
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/4nMMZ1Zb/Shoe-Product-Shot-17.png"
+      ],
+      "updatedAt": "2026-05-20T10:47:56.152Z"
+    },
+    {
+      "id": "1779272422870",
+      "name": "",
+      "ref": "",
+      "category": "femme",
+      "subCategory": null,
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/KjS60XWS/Shoe-Product-Shot-19.png"
+      ],
+      "updatedAt": "2026-05-20T10:20:22.870Z"
+    },
+    {
+      "id": "1779272287900",
+      "name": "",
+      "ref": "",
+      "category": "homme",
+      "subCategory": null,
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/mVcPzPM1/Shoe-Product-Shot-18.png"
+      ],
+      "updatedAt": "2026-05-20T10:18:07.900Z"
+    },
+    {
+      "id": "1779272265612",
+      "name": "",
+      "ref": "",
+      "category": "femme",
+      "subCategory": null,
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/PZYS83Vz/Shoe-Product-Shot-20.png"
+      ],
+      "updatedAt": "2026-05-20T10:17:45.612Z"
+    },
+    {
+      "id": "1779272243768",
+      "name": "",
+      "ref": "",
+      "category": "femme",
+      "subCategory": null,
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/pB23cfk0/Shoe-Product-Shot-21.png"
+      ],
+      "updatedAt": "2026-05-20T10:17:23.768Z"
+    },
+    {
+      "id": "1779177537594",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "garcon",
+      "sizes": [],
+      "description": "",
+      "stock": "disponible",
+      "images": [
+        "https://i.ibb.co/FbrjPgsc/IMG-9281.jpg",
+        "https://i.ibb.co/dw21rS6r/IMG-9282.jpg"
+      ],
+      "updatedAt": "2026-05-19T07:58:57.594Z"
+    },
+    {
+      "id": "1779177498112",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "garcon",
+      "sizes": [],
+      "description": "",
+      "stock": "disponible",
+      "images": [
+        "https://i.ibb.co/KS2Wwd6/IMG-9278.jpg",
+        "https://i.ibb.co/rRMcTvmf/IMG-9280.jpg"
+      ],
+      "updatedAt": "2026-05-19T07:58:18.112Z"
+    },
+    {
+      "id": "1779177456923",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "garcon",
+      "sizes": [],
+      "description": "",
+      "stock": "disponible",
+      "images": [
+        "https://i.ibb.co/5xJh5P1X/IMG-9273.jpg",
+        "https://i.ibb.co/PZhDSv7T/IMG-9275.jpg"
+      ],
+      "updatedAt": "2026-05-19T07:57:36.923Z"
+    },
+    {
+      "id": "1779177340508",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "fille",
+      "sizes": [],
+      "description": "",
+      "stock": "disponible",
+      "images": [
+        "https://i.ibb.co/F4x5W7fz/IMG-9271.jpg",
+        "https://i.ibb.co/DfGm1Srb/IMG-9272.jpg"
+      ],
+      "updatedAt": "2026-05-19T07:55:40.508Z"
+    },
+    {
+      "id": "1779177284653",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "fille",
+      "sizes": [],
+      "description": "",
+      "stock": "disponible",
+      "images": [
+        "https://i.ibb.co/n876YBMQ/IMG-9268.jpg",
+        "https://i.ibb.co/V0rLg4wp/IMG-9269.jpg"
+      ],
+      "updatedAt": "2026-05-19T07:54:44.653Z"
+    },
+    {
+      "id": "1779177230076",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "garcon",
+      "sizes": [],
+      "description": "",
+      "stock": "disponible",
+      "images": [
+        "https://i.ibb.co/6cXWcKj7/IMG-9264.jpg",
+        "https://i.ibb.co/mCsC6QP1/IMG-9265.jpg"
+      ],
+      "updatedAt": "2026-05-19T07:53:50.076Z"
+    },
+    {
+      "id": "1779176012049",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "fille",
+      "sizes": [],
+      "description": "",
+      "stock": "disponible",
+      "images": [
+        "https://i.ibb.co/LX2st204/IMG-9322.jpg"
+      ],
+      "updatedAt": "2026-05-19T07:33:32.049Z"
+    },
+    {
+      "id": "1779175946699",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "fille",
+      "sizes": [],
+      "description": "",
+      "stock": "disponible",
+      "images": [
+        "https://i.ibb.co/sJcczh1m/IMG-9319.jpg"
+      ],
+      "updatedAt": "2026-05-19T07:32:26.699Z"
+    },
+    {
+      "id": "1779175656780",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "fille",
+      "sizes": [],
+      "description": "",
+      "stock": "disponible",
+      "images": [
+        "https://i.ibb.co/MDRvQDnB/IMG-9316.jpg"
+      ],
+      "updatedAt": "2026-05-19T07:27:36.780Z"
+    },
+    {
+      "id": "1779175593678",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "fille",
+      "sizes": [],
+      "description": "",
+      "stock": "disponible",
+      "images": [
+        "https://i.ibb.co/LzBcKZzZ/IMG-9312-1.jpg"
+      ],
+      "updatedAt": "2026-05-19T07:26:33.678Z"
+    },
+    {
+      "id": "1779175565764",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "garcon",
+      "sizes": [],
+      "description": "",
+      "stock": "disponible",
+      "images": [
+        "https://i.ibb.co/SXFbdD9h/IMG-9309-1.jpg"
+      ],
+      "updatedAt": "2026-05-19T07:26:05.764Z"
+    },
+    {
+      "id": "1779175423565",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "garcon",
+      "sizes": [],
+      "description": "",
+      "stock": "disponible",
+      "images": [
+        "https://i.ibb.co/WNCXB5vy/IMG-9283.jpg",
+        "https://i.ibb.co/49RwHZc/IMG-9285.jpg"
+      ],
+      "updatedAt": "2026-05-19T07:23:43.565Z"
+    },
+    {
+      "id": "1779170981651",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "fille",
+      "sizes": [],
+      "description": "",
+      "stock": "disponible",
+      "images": [
+        "https://i.ibb.co/twHmndTJ/ef2-0.jpg",
+        "https://i.ibb.co/22FgpcX/ef2-1.jpg"
+      ],
+      "updatedAt": "2026-05-19T06:09:41.651Z"
+    },
+    {
+      "id": "1779167916453",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "fille",
+      "sizes": [],
+      "description": "",
+      "stock": "disponible",
+      "images": [
+        "https://i.ibb.co/PGr0zj8G/ef1.jpg"
+      ],
+      "updatedAt": "2026-05-19T07:28:24.066Z"
+    }
+  ],
+  "exportedAt": "2026-05-20T11:07:10.530Z",
+  "total": 32
+}
