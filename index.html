@@ -328,22 +328,21 @@ footer {
     </button>
     <div class="lang-switcher">
       <button class="lang-btn active" onclick="setLang('fr')">FR</button>
-      <button class="lang-btn" onclick="setLang('ar')">AR</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
   </div>
   <nav class="header-nav">
-    <button class="nav-tab active" onclick="setTab('all')" id="tab-all" data-fr="Tous" data-ar="الكل" data-en="All">Tous</button>
-    <button class="nav-tab" onclick="setTab('homme')" id="tab-homme" data-fr="Homme" data-ar="رجال" data-en="Men">Homme</button>
-    <button class="nav-tab" onclick="setTab('femme')" id="tab-femme" data-fr="Femme" data-ar="نساء" data-en="Women">Femme</button>
-    <button class="nav-tab" onclick="setTab('enfant')" id="tab-enfant" data-fr="Enfant" data-ar="أطفال" data-en="Children">Enfant</button>
+    <button class="nav-tab active" onclick="setTab('all')" id="tab-all">Tous</button>
+    <button class="nav-tab" onclick="setTab('homme')" id="tab-homme">Homme</button>
+    <button class="nav-tab" onclick="setTab('femme')" id="tab-femme">Femme</button>
+    <button class="nav-tab" onclick="setTab('enfant')" id="tab-enfant">Enfant</button>
   </nav>
 </header>
 
 <section class="hero">
   <div class="hero-eyebrow" id="heroEyebrow">Collection 2025</div>
   <h1 class="hero-title">AGORA<br><span class="accent">Chaussures</span></h1>
-  <p class="hero-sub" id="heroSub">Qualité & Style — جودة وأناقة — Quality & Style</p>
+  <p class="hero-sub" id="heroSub">Qualité & Style — Quality & Style</p>
 </section>
 
 <div class="search-bar-wrap">
@@ -389,15 +388,7 @@ const LABELS = {
     empty:'Aucun produit trouvé.',
     articles: n => `${n} article${n > 1 ? 's' : ''}`,
     catLabel:{ homme:'Homme', femme:'Femme', enfant:'Enfant' },
-  },
-  ar: {
-    tagline:'الكتالوج الرسمي', all:'الكل', homme:'رجال', femme:'نساء', enfant:'أطفال',
-    garcon:'أولاد', fille:'بنات', sizes:'المقاسات المتاحة',
-    noImg:'لا توجد صورة', search:'ابحث عن منتج...',
-    footer:'© 2025 مجموعة أغورا للأحذية — جميع الحقوق محفوظة',
-    empty:'لا توجد منتجات.',
-    articles: n => `${n} منتج`,
-    catLabel:{ homme:'رجال', femme:'نساء', enfant:'أطفال' },
+    heroSub:'Qualité & Style — Quality & Style',
   },
   en: {
     tagline:'Official Catalogue', all:'All', homme:'Men', femme:'Women', enfant:'Children',
@@ -407,6 +398,7 @@ const LABELS = {
     empty:'No products found.',
     articles: n => `${n} item${n > 1 ? 's' : ''}`,
     catLabel:{ homme:'Men', femme:'Women', enfant:'Children' },
+    heroSub:'Quality & Style',
   }
 };
 
@@ -530,14 +522,15 @@ function closeModalBtn() {
 document.addEventListener('keydown', e => { if(e.key==='Escape') closeModalBtn(); });
 
 function setLang(lang) {
-  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.documentElement.dir = 'ltr';
   document.documentElement.lang = lang;
   currentLang = lang;
-  const pageTitles = { fr:'AGORA Chaussures — Catalogue', ar:'أغورا — الكتالوج', en:'AGORA Shoes — Catalogue' };
+  const pageTitles = { fr:'AGORA Chaussures — Catalogue', en:'AGORA Shoes — Catalogue' };
   document.title = pageTitles[lang];
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
   document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
   document.getElementById('tagline').textContent = L('tagline');
+  document.getElementById('heroSub').textContent = L('heroSub');
   document.getElementById('searchBar').placeholder = L('search');
   document.getElementById('footerText').textContent = L('footer');
   document.querySelectorAll('.nav-tab').forEach(t => {
