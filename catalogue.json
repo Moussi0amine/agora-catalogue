@@ -1,6 +1,97 @@
 {
   "products": [
     {
+      "id": "1780923910350",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "fille",
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/V0491K2W/7mohamed.png"
+      ],
+      "updatedAt": "2026-06-08T13:05:10.350Z"
+    },
+    {
+      "id": "1780923885806",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "fille",
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/d0v28p3P/6mohamed.png"
+      ],
+      "updatedAt": "2026-06-08T13:04:45.806Z"
+    },
+    {
+      "id": "1780923867839",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "fille",
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/LDn66JmK/5mohamed.png"
+      ],
+      "updatedAt": "2026-06-08T13:04:27.839Z"
+    },
+    {
+      "id": "1780923826306",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "fille",
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/Pv5RR106/4mohamed.png"
+      ],
+      "updatedAt": "2026-06-08T13:03:46.306Z"
+    },
+    {
+      "id": "1780923801406",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "fille",
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/FkVkdDmN/3mohamed.png"
+      ],
+      "updatedAt": "2026-06-08T13:03:21.406Z"
+    },
+    {
+      "id": "1780923750222",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "fille",
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/4ZpWrz6N/2mohamed.png"
+      ],
+      "updatedAt": "2026-06-08T13:02:30.222Z"
+    },
+    {
+      "id": "1780923701043",
+      "name": "",
+      "ref": "",
+      "category": "enfant",
+      "subCategory": "fille",
+      "sizes": [],
+      "description": "",
+      "images": [
+        "https://i.ibb.co/dst02F9T/1mohamed.png"
+      ],
+      "updatedAt": "2026-06-08T13:01:41.043Z"
+    },
+    {
       "id": "1779349608640",
       "name": "",
       "ref": "",
@@ -38,19 +129,6 @@
         "https://i.ibb.co/MDT295mD/Sparkle-boots-tag-removed.png"
       ],
       "updatedAt": "2026-05-21T07:46:18.827Z"
-    },
-    {
-      "id": "1779349562090",
-      "name": "",
-      "ref": "",
-      "category": "enfant",
-      "subCategory": "fille",
-      "sizes": [],
-      "description": "",
-      "images": [
-        "https://i.ibb.co/608YvSN9/Sparkle-boots-VA-66-tag-removed.png"
-      ],
-      "updatedAt": "2026-05-21T07:46:02.090Z"
     },
     {
       "id": "1779349543557",
@@ -985,6 +1063,6 @@
       "updatedAt": "2026-05-19T07:28:24.066Z"
     }
   ],
-  "exportedAt": "2026-05-21T07:57:26.651Z",
-  "total": 74
+  "exportedAt": "2026-06-08T13:05:14.693Z",
+  "total": 80
 }
